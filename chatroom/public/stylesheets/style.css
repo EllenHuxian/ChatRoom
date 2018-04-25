@@ -1,0 +1,56 @@
+.wrapper {
+  height: 600px;
+  padding: 20px 35px;
+  margin: 0 auto;
+  background-color: #efefef;
+}
+#loginWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(5, 5, 5, .6);
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  display: block;
+  padding-top: 200px;
+}
+#nickWrapper {
+  display: block;
+  font-size: 17px;
+  color: black;
+}
+#status {
+  padding-left: 300px;
+  color: gray;
+  font-size: 20px;
+}
+.controls {
+  height: 100px;
+  margin: 15px 0px;
+  position: relative;
+}
+#historyMsg {
+  border-radius: 5px;
+  height: 400px;
+  background-color: #fff;
+  overflow: auto;
+  padding: 10px;
+}
+.timespan {
+  color: grey;
+}
+#messageInput {
+  /*width: 440px;*/
+  border-radius: 5px;
+  padding: 10px;
+  border-width: 0px;
+  width: 95%;
+  height: 100px;
+  max-height: 100px;
+}
+#sendBtn {
+  float: right;
+}

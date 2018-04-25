@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,">
+  <meta charset="UTF-8">
+
+  <title>Chat Room</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="jumbotron" style="padding: 20px">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-4">
+        <p style="font-size: 20px"><span style="padding-right: 5px" class="glyphicon glyphicon-user"></span>
+          <span>Welcome to Chat Room!</span>
+        </p>
+      </div>
+      <div class="col-sm-7"></div>
+      <div class="col-sm-1"><button type="button" class="btn" style="color: black">log out</button></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <a style="color: black;text-decoration: none"><h1 style="padding-left: 100px">Chat Room</h1></a>
+        <span id="status"></span>
+      </div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3" style="text-align: center"><img src="images/cat.jpg"
+                                                            class="img-circle"
+                                                            alt="Default User Photo"
+                                                            width="180"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="wrapper">
+        <div id="historyMsg"></div>
+        <div class="controls" >
+          <div class="col-sm-11">
+            <textarea id="messageInput" placeHolder="Write someting..."></textarea>
+          </div>
+          <div class="col-sm-1">
+            <input id="sendBtn" type="button" value="Send" class="btn" style="color: black"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+<div id="loginWrapper">
+  <div id="nickWrapper">
+    <% if (loginErr) { %>
+    <p id="LoginInfo" style="color: white"><%= loginErr%></p>
+    <% } else { %>
+    <p id="LoginInfo" style="color: white">Log in to chat :)</p>
+    <% } %>
+    <form method="post">
+      <input type="text" placeHolder="nickname" name="nicknameInput" style="padding: 3px; margin: 5px" />
+      <input type="password" placeholder="password", name = "passInput" style="padding: 3px; margin: 5px" />
+      <input type="submit" value="Submit" name="loginBtn" class="btn" style="color: black"/>
+    </form>
+    <p></p>
+    <% if (registerErr) { %>
+    <p id="RegisterInfo" style="color: white"><%= registerErr%></p>
+    <% } else { %>
+    <p id="RegisterInfo" style="color: white">Not account? Register here.</p>
+    <% } %>
+    <form method="post">
+      <input type="text" placeHolder="nickname" name="newNameInput" style="padding: 3px; margin: 5px" />
+      <input type="password" placeholder="password", name = "newPassInput_1" style="padding: 3px; margin: 5px" />
+      <input type="password" placeholder="Re-enter password", name = "newPassInput_2" style="padding: 3px; margin: 5px" />
+      <input type="submit" value="Submit" name="registerBtn" class="btn" style="color: black"/>
+    </form>
+  </div>
+</div>
+
+<div id="footer" class="container">
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar-inner navbar-content-center">
+      <p class="text-muted credit" style="padding: 10px;padding-left: 50px">
+        Copyright-<mark>Xian Hu</mark> (Ellen Hu) Contact: xianh@andrew.cmu.edu
+      </p>
+    </div>
+  </nav>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+</body>
+</html>

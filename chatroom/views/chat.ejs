@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,">
+    <meta charset="UTF-8">
+
+    <title>Chat Room</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="jumbotron" style="padding: 20px">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <p style="font-size: 20px"><span style="padding-right: 5px" class="glyphicon glyphicon-user"></span>
+                    <% if (user) {%>
+                    <span><span id="currentUser"><%= user%></span>, welcome to Chat Room!</span>
+                    <% } else { %>
+                    <span><span id="currentUser"></span>Welcome to Chat Room!</span>
+                    <% } %>
+                </p>
+            </div>
+            <div class="col-sm-7"></div>
+            <form method="post">
+                <div class="col-sm-1"><input type="submit" value="log out" name="logoutBtn" class="btn" style="color: black"/></div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <a style="color: black;text-decoration: none"><h1 style="padding-left: 100px">Chat Room</h1></a>
+                <span id="status"></span>
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3" style="text-align: center"><img src="images/cat.jpg"
+                                                                  class="img-circle"
+                                                                  alt="Default User Photo"
+                                                                  width="180"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="wrapper">
+                <div id="historyMsg"></div>
+                <div class="controls" >
+                    <div class="col-sm-11">
+                        <textarea id="messageInput" placeHolder="Write someting..."></textarea>
+                    </div>
+                    <div class="col-sm-1">
+                        <input id="sendBtn" type="button" value="Send" class="btn" style="color: black"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+<div id="footer" class="container">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="navbar-inner navbar-content-center">
+            <p class="text-muted credit" style="padding: 10px;padding-left: 50px">
+                Copyright-<mark>Xian Hu</mark> (Ellen Hu) Contact: xianh@andrew.cmu.edu
+            </p>
+        </div>
+    </nav>
+</div>
+<script src="../socket.io/socket.io.js"></script>
+<script src="/javascripts/chat.js"></script>
+</body>
+</html>
